@@ -4,14 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
 class Work extends Model
 {
     use HasFactory;
-
-    protected $dates = ['deleted_at'];
 
     protected $fillable = [
         'title',
@@ -20,7 +17,7 @@ class Work extends Model
         'image_original_name',
         'text',
         'creation_date',
-        'deleted_at'
+        'type_id'
     ];
 
 
@@ -38,4 +35,8 @@ class Work extends Model
 
         return $slug;
     }
+
+    public function type(){
+		return $this->belongsTo(Type::class);
+	}
 }

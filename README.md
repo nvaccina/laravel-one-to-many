@@ -18,3 +18,8 @@ aggiungere le operazioni CRUD per il model Type, in modo da gestire le tipologie
 
 # Steps
 - Creo Model e migration di Type
+- Aggiungo campi alla migration Type: name, slug
+- Creo la TypeTableSeeder
+- Aggiungo i campi che voglio tra le opzioni type;
+- Popolo i seeder con => php artisan db:seed --class=TypeTableSeeder   
+- Faccio l'update della migration works per aggiungere il campo type;
