@@ -15,6 +15,7 @@
                 <tr>
                     <th scope="col">#ID</th>
                     <th scope="col">Titolo</th>
+                    <th scope="col">Tipo</th>
                     <th scope="col">Data</th>
                     <th scope="col">Azioni</th>
                 </tr>
@@ -27,6 +28,7 @@
                         @php
                             $date = date_create($work->creation_date)
                         @endphp
+                        <td>{{$work->type?->name}}</td>
                         <td>{{date_format($date, 'd-m-Y')}}</td>
                         <td>
                             <a class="btn btn-primary" href="{{route('admin.works.show', $work)}}">

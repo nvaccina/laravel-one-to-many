@@ -10,6 +10,7 @@
         </div>
         <p>{{$work->image_original_name}}</p>
 
+        <p class="pt-2">Tipo: {{$work->type?->name}}</p>
 
         <p class="pt-2">{!!$work->text!!}</p>
         <p>{{$date_formatted}}</p>

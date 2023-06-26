@@ -49,6 +49,18 @@
                 <img id="default-image" width="150px" src="{{ asset('storage/' . $work->image) }}" alt="" onerror="this.src='/img/noimage.jpg'" class="pt-2">
             </div>
 
+            <div class="mb-3 w-25">
+                <label for="type" class="form-label">Tipo</label>
+                <select class="form-select" aria-label="Default select example" name="type" id="type">
+                    <option value="" selected>Seleziona il tipo di lavoro</option>
+
+                    @foreach ($types as $type )
+                        <option value="{{$type->id}}" @if($type->id == old('type_id', $work->type?->id)) selected @endif>{{$type->name}}</option>
+                    @endforeach
+
+                </select>
+            </div>
+
             <div class="mb-3">
                 <label for="text" class="form-label">Testo (*)</label>
                 <textarea

@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\WorkRequest;
 use Illuminate\Http\Request;
 use App\Models\Work;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
+
+use function PHPSTORM_META\type;
 
 class WorkController extends Controller
 {
@@ -29,7 +32,9 @@ class WorkController extends Controller
      */
     public function create(Work $work)
     {
-        return view('admin.works.create', compact('work'));
+        $types = Type::all();
+
+        return view('admin.works.create', compact('work', 'types'));
     }
 
     /**
@@ -78,7 +83,8 @@ class WorkController extends Controller
      */
     public function edit(Work $work)
     {
-        return view('admin.works.edit', compact('work'));
+        $types = Type::all();
+        return view('admin.works.edit', compact('work', 'types'));
     }
 
     /**
